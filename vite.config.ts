@@ -23,9 +23,12 @@ export default defineConfig({
       "@assets": path.resolve(import.meta.dirname, "attached_assets"),
     },
   },
-  root: path.resolve(import.meta.dirname, "src"), // 👈 Changed from "client" to "src"
+  root: path.resolve(import.meta.dirname, "src"),
   build: {
-    outDir: path.resolve(import.meta.dirname, "dist"), // 👈 Changed from "dist/public" to "dist"
+    rollupOptions: {
+      input: path.resolve(import.meta.dirname, "src/main.tsx"),
+    },
+    outDir: path.resolve(import.meta.dirname, "dist"),
     emptyOutDir: true,
   },
 });
